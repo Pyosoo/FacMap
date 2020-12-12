@@ -10,6 +10,7 @@ import '../CSSs/SubwayPage.css';
 // Image import
 import warning from '../Images/warning.png'
 import menuIcon from '../Images/menuIcon.png'
+import placeholder from '../Images/placeholder.png';
 
 // Component import
 import 'antd/dist/antd.css';
@@ -132,6 +133,7 @@ function SubwayPage(props) {
                         key='myposition'
                         position={MyPos}
                         animation={2}
+                        icon={placeholder}
                     />
                     {Markers}
                 </NaverMap>
