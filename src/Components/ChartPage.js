@@ -160,10 +160,7 @@ class ChartPage extends React.Component {
                 },
 
                 title: {
-                    text: '2020년 전국 장애인 시설 분포도 현황'
-                },
-                subtitle: {
-                    text: 'Click the columns to view versions.'
+                    text: ' '
                 },
                 accessibility: {
                     announceNewData: {
