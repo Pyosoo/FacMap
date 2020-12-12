@@ -1,0 +1,41 @@
+.ChartTotal_Container{
+    width: 100%;
+}
+
+
+@media (min-width: 1024px){
+    .Chart_text{
+        font-size: 30px;
+        font-weight: bold;
+        line-height: 15vh;
+        vertical-align: middle;
+    }
+
+    .Chart_Mobile{
+        display: none;
+    }
+    .ChartComponent{
+        margin-top: 25vh;
+    }
+    
+}
+
+
+
+@media (min-width: 325px) and (max-width: 480px){
+    .Chart_OverTablet{
+        display: none;
+    }
+    .Chart_Mobile{
+        display: block;
+    }
+    .Chart_text2{
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .ChartComponent{
+        margin-top: 5vh;
+        width: 100%;
+    }
+    
+}

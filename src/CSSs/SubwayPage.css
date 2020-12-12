@@ -1,3 +1,10 @@
+@media (min-width: 1024px){
+    .Subway_text{
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+}
+
 @media (min-width:325px) and (max-width:480px){
     
 }
