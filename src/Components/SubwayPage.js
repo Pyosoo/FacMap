@@ -16,17 +16,23 @@ import placeholder from '../Images/placeholder.png';
 import 'antd/dist/antd.css';
 import Subway from '../Data/Subway.json';
 import '../CSSs/NaverMapComponent.css';
-import { connect } from 'react-redux';
+import { useRecoilValue } from 'recoil';
+
+// recoil
+import {MyPOS} from '../Utils/Atoms';
 
 // 전역 변수
 let list2 = [];
 
 function SubwayPage(props) {
 
+    // recoil 값 가져오기
+    const MyLatLng = useRecoilValue(MyPOS);
+
     const [Markers, setMarkers] = useState([]);
     const [MyPos, setMyPos] = useState({
-        lat: props.POS.x,
-        lng: props.POS.y
+        lat: MyLatLng[0],
+        lng: MyLatLng[1]
     })
 
 
@@ -117,7 +123,7 @@ function SubwayPage(props) {
             <div className="TitleLine">
             <p className="Mobile_text1"><img className="TopMenuIcon" src={menuIcon}/> 지하철 승강설비 현황</p>
                 <p className="Subway_text">서울 지하철역들 중 승강 설비 공사 현황</p>
-                <p className="Subway_text">승강 설비 현황 및 도착 시간을 확인해보세요!(약 1~2초간의 소요가 발생할 수 있습니다.)</p>
+                <p className="Subway_text">승강 설비 현황 및 도착 시간을 확인해보세요!(처음 로드시 약간의 시간이 소요됩니다.)</p>
             </div>
             <RenderAfterNavermapsLoaded
                 ncpClientId={'ce25x52vaf'} // 자신의 네이버 계정에서 발급받은 Client ID
@@ -142,8 +148,4 @@ function SubwayPage(props) {
     )
 }
 
-function mapStateToProps(state, onwProps) {
-    return { POS: state };
-}
-
-export default connect(mapStateToProps)(SubwayPage);
+export default SubwayPage;

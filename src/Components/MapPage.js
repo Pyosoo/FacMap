@@ -3,8 +3,6 @@ import { RenderAfterNavermapsLoaded } from 'react-naver-maps'; // 패키지 불�
 import NaverMapComponent from './NaverMapComponent';
 
 // redux 관련
-import { connect } from 'react-redux';
-import { actionCreators } from '../store';
 
 function MapPage(props) {
 

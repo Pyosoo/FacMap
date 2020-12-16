@@ -9,9 +9,9 @@ import ClassInfo from '../Data/ClassInfo.json';
 // Image 관련
 import placeholder from '../Images/placeholder.png';
 import menuIcon from '../Images/menuIcon.png';
-// redux 관련
-import { connect } from 'react-redux';
-import { actionCreators } from '../store';
+// recoil 관련
+import {useSetRecoilState} from 'recoil';
+import {MyPOS} from '../Utils/Atoms';
 
 
 // Data관련
@@ -54,6 +54,8 @@ function NaverMapComponent(props) {
   const [SportType2, setSportType2] = useState('');
   const [SportType3, setSportType3] = useState('');
 
+  const setMyPOS = useSetRecoilState(MyPOS);
+
 
   // ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■function 관련
   function getLocation() {
@@ -67,7 +69,8 @@ function NaverMapComponent(props) {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         })
-        props.updateState(position.coords.latitude, position.coords.longitude)
+        let temp = [position.coords.latitude, position.coords.longitude];
+        setMyPOS(temp);
       }, function (error) {
         console.error(error);
       }, {
@@ -456,13 +459,4 @@ function NaverMapComponent(props) {
 
 }
 
-
-// reducer에 action을 알리는 함수 
-function mapDispatchToProps(dispatch) {
-  return {
-    updateState: (x, y) => dispatch(actionCreators.updateState(x, y))
-  };
-}
-
-
-export default connect(null, mapDispatchToProps)(NaverMapComponent);
+export default NaverMapComponent;
